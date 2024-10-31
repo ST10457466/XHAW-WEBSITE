@@ -65,6 +65,23 @@ form button[type="submit"] {
     cursor: pointer;
     font-size: 16px;
 }
+nav ul {
+  display: flex; 
+  justify-content: center; 
+  list-style: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+nav ul li {
+  margin: 0 1rem; 
+}
+
+nav ul li a {
+  color: #171515;
+  text-decoration: none; 
+  font-weight: 700; 
+  font-size: 1.2rem;    
+}
 
 form button[type="submit"]:hover {
     background-color: #45a049;

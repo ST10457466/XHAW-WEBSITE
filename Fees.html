@@ -1,45 +1,64 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fees</title>
         <link rel="stylesheet" href="stylesheet.css">
-			<link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
-<html>
-<title>Apply</title>
-	</head>
-<body bgcolor="gray">
+    <body bgcolor="gray">
 
-	<form action="/action_page.php" method="get">
-  <label for="fname">First name:</label>
-  <input type="text" id="fname" name="fname"><br><br>
-  <label for="lname">Last name:</label>
-  <input type="text" id="lname" name="lname"><br><br>
-  <label for="email">Email adress:</label>
-  <input type="text" id="email" name="email"><br><br>
-</form>
+        <div class="form-container">
+            <h2>Course Application Form</h2>
+            <form>
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" name="fname"><br><br>
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" name="lname"><br><br>
+                <label for="email">Email address:</label>
+                <input type="email" id="email" name="email"><br><br>
+            </form>
 
-<hr>
+            <hr>
 
-<form action="/action_page.php">
-<input type="checkbox" id="6m" name="course" value="1500">
-<label for="6m"> First Aid (R1500)</label><br>
-<input type="checkbox" id="6m" name="course" value="1500">
-<label for="6m"> Sewing (R1500)</label><br>
-<input type="checkbox" id="6m" name="course" value="1500">
-<label for="6m"> Landscaping (R1500)</label><br>
-<input type="checkbox" id="6m" name="course" value="1500">
-<label for="6m"> Life Skills (R1500)</label><br><br>
-<input type="checkbox" id="6w" name="course" value="750">
-<label for="6w"> Child Minding (R750)</label><br>
-<input type="checkbox" id="6w" name="course" value="750">
-<label for="6w"> Cooking (R750)</label><br>
-<input type="checkbox" id="6w" name="vehicle1" value="750">
-<label for="vehicle1"> First Aid (R750)</label><br><br>
-<input type="submit" value="Submit">
-</form>
+            <h3>Select Courses</h3>
+            <form id="courseForm">
+                <input type="checkbox" id="course1" name="course" value="1500" onchange="calculateTotal()">
+                <label for="course1"> First Aid (R1500)</label><br>
+                <input type="checkbox" id="course2" name="course" value="1500" onchange="calculateTotal()">
+                <label for="course2"> Sewing (R1500)</label><br>
+                <input type="checkbox" id="course3" name="course" value="1500" onchange="calculateTotal()">
+                <label for="course3"> Landscaping (R1500)</label><br>
+                <input type="checkbox" id="course4" name="course" value="1500" onchange="calculateTotal()">
+                <label for="course4"> Life Skills (R1500)</label><br><br>
+                <input type="checkbox" id="course5" name="course" value="750" onchange="calculateTotal()">
+                <label for="course5"> Child Minding (R750)</label><br>
+                <input type="checkbox" id="course6" name="course" value="750" onchange="calculateTotal()">
+                <label for="course6"> Cooking (R750)</label><br>
+                <input type="checkbox" id="course7" name="course" value="750" onchange="calculateTotal()">
+                <label for="course7"> First Aid (R750)</label><br><br>
+                <button type="submit">Submit</button>
+			<input type="reset" value="Reset">
+            </form>
 
-</body>
+            <div class="total">Total Amount to Pay: R<span id="totalAmount">0</span></div>
+        </div>
+
+        <script>
+            function calculateTotal() {
+                // Get all checkbox elements with name 'course'
+                const checkboxes = document.querySelectorAll('input[name="course"]:checked');
+                let total = 0;
+
+                // Sum the values of checked checkboxes
+                checkboxes.forEach((checkbox) => {
+                    total += parseFloat(checkbox.value);
+                });
+
+                // Display the total amount
+                document.getElementById('totalAmount').textContent = total.toFixed(2);
+            }
+        </script>
+    </body>
 </html>
